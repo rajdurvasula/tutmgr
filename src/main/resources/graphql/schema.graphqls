@@ -1,0 +1,23 @@
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Tutorial {
+    id: ID
+    name: String
+    description: String
+    author: Author
+}
+
+type Query {
+    findAllAuthors: [Author]
+    findAllTutorials: [Tutorial]
+    findTutorialsByAuthor(authorId: ID!): [Tutorial]
+}
+
+type Mutation {
+    createAuthor(firstName: String!, lastName: String!): Author
+    createTutorial(name: String!, description: String, author: ID!): Tutorial
+}
